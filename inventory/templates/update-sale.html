@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Sale</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Update Sale</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Update Sale</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">Update Sale</div>
+            <div class="card-body">
+                <form action="/update-sale/{{ sale.id }}" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="product_id">Product</label>
+                                <select id="product_id" name="product_id" class="form-control" required>
+                                    <option value="" disabled>Choose...</option>
+                                    {% for product in products %}
+                                    <option value="{{ product.product_id }}"
+                                        {% if product.product_id == sale.product_id %} selected {% endif %}>
+                                        {{ product.product_id }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input class="form-control" value="{{ sale.quantity }}" name="quantity" id="quantity" type="number" placeholder="Enter Quantity" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="form-control" value="{{ sale.price }}" name="price" id="price" type="text" placeholder="Enter Price" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input class="form-control" value="{{ sale.date.strftime('%Y-%m-%d') }}" name="date" id="date" type="date" required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-0">
+                        <input type="submit" class="btn btn-primary btn-block" value="Update Sale">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Balance Stock - Inventory Management App</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">NaaV PHARMACY</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Balance Stock</li>
+        </ol>
+        <div class="card mb-5">
+            <div class="card-header"><b>BALANCE STOCK</b></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Date Created</th>
+                                <th>Quantity</th>
+                                <th>Total Sold</th>
+                                <th>Remaining Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in balance_stock %}
+                            <tr>
+                                <td>{{ item.product_id }}</td>
+                                <td>{{ item.category }}</td>
+                                <td>{{ item.price }}</td>
+                                <td>{{ item.date_created.strftime('%Y-%m-%d') }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.total_sold }}</td>
+                                <td>{{ item.remaining_stock }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

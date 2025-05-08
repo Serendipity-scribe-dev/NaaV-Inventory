@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+{% block title %} ChatBot {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="../static/css/chatbot.css">
+<script defer src="../static/js/chatScript.js"></script>
+<!-- <div class="screen"> -->
+    <div class="chat-container">
+        <div class="cc1">
+            <div class="chat-header">
+                <h1>MediBot</h1>
+            </div>
+            <hr class="chat-hr">
+        </div>
+
+        <div class="chat-history cc2" id="chat-history">
+            <!-- Chat history will be dynamically populated here -->
+        </div>
+
+        <div class="chat-input cc3">
+            <input class="chat-input-component chat-input-box" type="text" id="user-prompt" name="user-prompt" placeholder="Type your message here" />
+            <button class="chat-input-component chat-input-btn" id="send-button" type="submit">Send</button>
+        </div>
+    </div>
+<!-- </div> -->
+{% endblock %}

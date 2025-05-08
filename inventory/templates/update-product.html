@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Update Product</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">NaaV PHARMACY</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/products/">Products</a></li>
+            <li class="breadcrumb-item active">Update Product</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header"><b>UPDATE PRODUCT</b></div>
+            <div class="card-body">
+                <form action="/update-product/{{product.product_id}}" method="POST" id="product_form">
+                    <div class="container">
+                        <div class="d-flex flex-wrap">
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <label for="product_name" class="col-form-label"><b>Medicine Name</b></label>
+                                <input type="text" name="product_name" id="product_name" value="{{product.product_id}}" class="form-control ml-2">
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center"> 
+                                <label for="quantity" class="col-form-label"><b>Quantity</b></label>
+                                <input type="number" name="quantity" id="quantity" value="{{product.quantity}}" class="form-control ml-2">
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-4 mb-3 d-flex align-items-center">
+                                    <label for="category" class="col-form-label"><b>Category</b></label>
+                                    <select name="category" id="category" value="{{product.category}}" class="form-control ml-2">
+                                        <option value="capsule">Capsule</option>
+                                        <option value="syrup">Syrup</option>
+                                        <option value="tablet">Tablet</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3 d-flex align-items-center">
+                                    <label for="price" class="col-form-label"><b>Price</b></label>
+                                    <input type="text" name="price" id="price" value="{{product.price}}" class="form-control ml-2">
+                                </div>
+                                <div class="col-md-4 mb-3 d-flex align-items-center">
+                                    <label for="date" class="col-form-label"><b>Date</b></label>
+                                    <input type="date" name="date" id="date" value="{{product.date}}" class="form-control ml-2">
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center mt-3">
+                                <input id="submitProduct" value="Update" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

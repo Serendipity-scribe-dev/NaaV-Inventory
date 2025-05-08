@@ -1,0 +1,21 @@
+Locations:
+ID: loc001, Date Created: 2024-06-15 10:00:00
+ID: loc002, Date Created: 2024-06-15 11:30:00
+
+Product Movements:
+ID: 1, Product ID: prod001, Quantity: 10, From Location: loc001, To Location: loc002, Movement Time: 2024-06-15 12:00:00
+ID: 2, Product ID: prod002, Quantity: 5, From Location: loc002, To Location: loc001, Movement Time: 2024-06-15 13:00:00
+
+Products:
+ID: prod001, Quantity: 20, Category: Medicine, Price: 10.5, Date Created: 2024-06-15 10:00:00
+ID: prod002, Quantity: 15, Category: Equipment, Price: 25.0, Date Created: 2024-06-15 11:30:00
+
+Suppliers:
+ID: 1, Supplier ID: 1001, Name: ABC Pharmaceuticals, Phone: 1234567890, Email: abcpharma@example.com, Date Created: 2024-06-15 10:00:00
+
+Customers:
+ID: 1, Customer ID: cust001, Name: John Doe, Phone: 9876543210, Email: john@example.com, Date Created: 2024-06-15 11:30:00
+
+Sales:
+ID: 1, Product ID: prod001, Customer ID: cust001, Quantity: 5, Price: 12.0, Date: 2024-06-15
+ID: 2, Product ID: prod002, Customer ID: cust001, Quantity: 2, Price: 30.0, Date: 2024-06-15

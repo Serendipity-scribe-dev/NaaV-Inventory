@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Update Customer</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Update Customer</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">Update Customer</div>
+            <div class="card-body">
+                <form action="/update-customer/{{customer.id}}" method="POST">
+                    <div class="container">
+                        <div class="d-flex flex-wrap">
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <label for="customer_id"><b>Customer ID</b></label>
+                                <input class="form-control" value="{{customer.customer_id}}" name="customer_id" id="customer_id" type="text" placeholder="Enter Customer ID" required />
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <label for="name"><b>Customer Name</b></label>
+                                <input class="form-control" value="{{customer.name}}" name="name" id="name" type="text" placeholder="Enter Customer Name" required />
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <label for="phone"><b>Phone Number</b></label>
+                                <input class="form-control" value="{{customer.phone}}" name="phone" id="phone" type="text" placeholder="Enter Phone Number" required />
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <label for="email"><b>Email</b></label>
+                                <input class="form-control" value="{{customer.email}}" name="email" id="email" type="email" placeholder="Enter Email" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4 mb-0">
+                        <input type="submit" class="btn btn-primary btn-block" value="Update Customer" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

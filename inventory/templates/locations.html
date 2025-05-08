@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Inventory Management App</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">NaaV PHARMACY</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Locations</li>
+        </ol>
+        <div class="card mb-5">
+            <div class="card-header"><b>LOCATIONS</b></div>
+            <div class="card-body">
+                <div class="card mb-4">
+                    <div class="card-header"><b>New Location</b></div>
+                    <div class="card-body">
+                        <form action="/locations/" method="POST" id="location_form">
+                            <div class="container">
+                                <div class="d-flex flex-wrap">
+                                    <div class="col-md-6 mb-3 d-flex align-items-center">
+                                        <label for="location_name" class="mr-2 form-label"><b>Location Name</b></label>
+                                        <input type="text" name="location_name" id="location_name" class="form-control flex-grow-1" required>
+                                        <input id="submitLocation" value="Add Location" class="btn btn-primary btn-submit" type="submit"></div>
+                                    
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                        <b>Locations Table</b>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            {% if locations|length < 1 %}
+                            <h4>There are no Locations, add one above</h4>
+                            {% else %}
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>LOCATION</th>
+                                        <th>DATE</th>
+                                        <th id="update">UPDATE</th>
+                                        <th id="delete">DELETE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for location in locations %}
+                                    <tr>
+                                        <td>{{ location.location_id }}</td>
+                                        <td>{{ location.date_created.date() }}</td>
+                                        <td>
+                                            <div class="sub">
+                                                <button class="btn btn-warning btn-xs" type="button">
+                                                    <a href="/update-location/{{ location.location_id }}">Update</a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="sub">
+                                                <button class="btn btn-danger btn-xs" type="button">
+                                                    <a href="/delete-location/{{ location.location_id }}">Delete</a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
